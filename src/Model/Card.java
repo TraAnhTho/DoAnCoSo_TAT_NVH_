@@ -2,21 +2,31 @@ package Model;
 
 import java.util.ArrayList;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "card")
 public class Card {
+    @Column(name = "cardcol")
 	private String cardcol;
+    @Column(name = "Dinh_Nghia")
 	private String Definition;
+	@Id
 	private String Name_Card;
 //	private ArrayList<FlashCard> CardList;
 
 	public Card() {
 		//rong
 	}
-	public Card(String definition, String name_Card) {
+	public Card( String name_Card,String definition) {
 		super();
 		Definition = definition;
 		Name_Card = name_Card;
 	}
-	public Card(String cardcol, String definition, String name_Card) {
+	public Card(String cardcol, String name_Card, String definition) {
 		super();
 		this.cardcol = cardcol;
 		Definition = definition;
@@ -43,6 +53,10 @@ public class Card {
 	}
 	public void setCardcol(String cardcol) {
 		this.cardcol = cardcol;
+	}
+	@Override
+	public String toString() {
+		return "Card [cardcol=" + cardcol + ", Definition=" + Definition + ", Name_Card=" + Name_Card + "]";
 	}
 	
 	
